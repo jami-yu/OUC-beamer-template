@@ -1,0 +1,29 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sintefcolor}[2026/10/14 Ocean University of China colours]
+\RequirePackage{xcolor}
+
+% Sampled from assets/reference_logo_RGB.png; the supplied logo is authoritative.
+\definecolor{oucblue}{RGB}{1,64,153}
+\colorlet{maincolor}{oucblue}
+
+% Supporting colours, not claimed as official university colours.
+\definecolor{oucgrey}{RGB}{239,243,248}
+\colorlet{oucgray}{oucgrey}
+\colorlet{ouclightblue}{oucblue!12!white}
+\colorlet{oucdarkblue}{oucblue!75!black}
+\definecolor{ouccyan}{RGB}{0,139,180}
+\definecolor{oucgold}{RGB}{170,119,20}
+
+% Backward compatibility with the original colour names.
+\colorlet{sintefgrey}{oucgrey}
+\colorlet{sintefgray}{oucgrey}
+\colorlet{sinteflightgrey}{oucgrey}
+\colorlet{sinteflightgray}{oucgrey}
+\colorlet{sinteflightgreen}{ouclightblue}
+\colorlet{sintefgreen}{ouccyan}
+\colorlet{sintefdarkgreen}{oucdarkblue}
+\colorlet{sintefyellow}{oucgold}
+\colorlet{sintefpurple}{oucblue}
+\colorlet{sinteflilla}{oucdarkblue}
+\colorlet{sintefcyan}{ouccyan}
+\colorlet{sintefmagenta}{oucblue}

@@ -1,0 +1,33 @@
+# macOS metadata
+.DS_Store
+._*
+
+# LaTeX intermediate files (keep the sample PDF)
+*.aux
+*.log
+*.nav
+*.snm
+*.toc
+*.out
+*.vrb
+*.fls
+*.fdb_latexmk
+*.xdv
+*.dvi
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.idx
+*.ind
+*.ilg
+*.lof
+*.lot
+
+# Python caches
+__pycache__/
+*.py[cod]

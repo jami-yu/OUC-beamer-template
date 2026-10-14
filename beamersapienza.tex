@@ -1,0 +1,271 @@
+% !TeX program = xelatex
+% 中国海洋大学 Beamer 模板。保留原文件名以兼容已有项目。
+\documentclass{beamer}
+\usepackage{amsfonts,amsmath}
+\usetheme{sintef}
+\usepackage{xeCJK}
+
+% Fandol 字体随 MacTeX / TeX Live 提供，也适用于 Overleaf。
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf]
+\setCJKsansfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+\setCJKmonofont{FandolFang-Regular.otf}
+\usefonttheme[onlymath]{serif}
+\hypersetup{unicode=true,pdftitle={中国海洋大学 Beamer 模板},
+  pdfauthor={中国海洋大学},hidelinks}
+
+\newcommand{\testcolor}[1]{\colorbox{#1}{\strut\hspace{1em}}~\texttt{#1}}
+\newcommand{\hrefcol}[2]{\textcolor{oucblue}{\href{#1}{#2}}}
+
+% 白底正文；目录、章节页与结束页自动使用海大蓝。
+% 如需整套蓝底正文，可在此处改成 \themecolor{main}。
+\themecolor{white}
+\titlebackground*{assets/background.png}
+\title{报告标题}
+\subtitle{报告副标题}
+\author{报告人}
+\institute{环境科学与工程学院}
+\date{\number\year 年\number\month 月\number\day 日}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{中国海洋大学 Beamer 模板}
+\begin{itemize}
+  \item 适用于课程汇报、学术报告、开题与毕业答辩。
+  \item 使用提供的海大校徽及中英文校名组合，保留参考图的轮廓和文字。
+  \item 主色取自参考校徽：\textbf{RGB(1,64,153)}，即 \texttt{\#014099}。
+  \item 保留原模板的 16:9 页面、斜分割封面、章节页及侧图页。
+\end{itemize}
+\end{frame}
+
+\section{快速开始}
+
+\begin{frame}[fragile]{编译与使用}
+使用 \textbf{XeLaTeX} 编译，支持中文与数学公式。
+\begin{block}{本机 MacTeX 编译命令}
+\begin{verbatim}
+latexmk -xelatex -jobname=ouc-beamer-template beamersapienza.tex
+\end{verbatim}
+\end{block}
+\begin{itemize}
+  \item 在 TeXShop 中选择 XeLaTeX；在 Overleaf 中将编译器设为 XeLaTeX。
+  \item 将主题文件、颜色文件与 \texttt{assets} 文件夹放在主文件旁。
+  \item 文件名沿用原项目；\verb|\usetheme{sintef}| 现加载海大主题。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{封面信息}
+\begin{block}{在导言区填写报告信息}
+\begin{verbatim}
+\title{报告标题}
+\subtitle{中国海洋大学 · 学术报告}
+\author{报告人姓名}
+\institute{环境科学与工程学院}
+\date{\today}
+\titlebackground*{assets/background.png}
+\end{verbatim}
+\end{block}
+\verb|\maketitle| 生成封面；带星号的背景命令采用右侧斜分割版式。
+\end{frame}
+
+\begin{frame}[fragile]{普通页面与逐步展示}
+\begin{itemize}[<+->]
+  \item 第一条内容：介绍研究背景。
+  \item 第二条内容：明确研究问题。
+  \item 第三条内容：展示主要结论。
+\end{itemize}
+\begin{block}{列表写法}
+\begin{verbatim}
+\begin{itemize}[<+->]
+  \item 第一条内容
+  \item 第二条内容
+\end{itemize}
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{数学公式}
+\begin{block}{海洋波动方程示例}
+\[
+\frac{\partial^2\eta}{\partial t^2}
+= c^2\left(\frac{\partial^2\eta}{\partial x^2}
++\frac{\partial^2\eta}{\partial y^2}\right)
+\]
+\end{block}
+\begin{itemize}
+  \item $\eta$ 表示水面位移，$c$ 表示传播速度。
+  \item 数学公式使用衬线字体，正文采用黑体。
+  \item 使用 \verb|\alert| 突出\alert{关键结论}。
+\end{itemize}
+\end{frame}
+
+\section{配色与排版}
+
+%\footlinecolor{oucblue}
+\begin{frame}[fragile]{海大蓝配色}
+\begin{itemize}
+  \item 主色来自提供的参考 logo，而非另行指定近似蓝色。
+  \item 白底页面使用蓝底白色校徽，蓝底页面自动切换为白底蓝色校徽。
+  \item 辅助色用于图表和内容块，不代表学校官方标准色。
+\end{itemize}
+\medskip
+\testcolor{oucblue}\quad\testcolor{oucdarkblue}\\[1ex]
+\testcolor{ouclightblue}\quad\testcolor{ouccyan}
+\begin{block}{颜色命令}
+\verb|\textcolor{oucblue}{海大蓝文字}|\qquad
+\verb|\footlinecolor{oucblue}|
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{正文样式与页脚}
+\begin{block}{正文样式：在导言区设置}
+\verb|\themecolor{white}|：白底深色文字，默认样式。\\
+\verb|\themecolor{main}|：海大蓝底白字。
+\end{block}
+\begin{itemize}
+  \item 页脚始终显示页码；设置蓝色页脚后还会显示作者与标题。
+  \item 用 \verb|\footlinecolor{oucblue}| 启用海大蓝页脚。
+  \item 用 \verb|\footlinecolor{}| 恢复无色页脚，仅保留页码。
+  \item 用 \verb|\footlinepayoff{自定义文字}| 调整页脚内容。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{内容块}
+\begin{columns}[T]
+\begin{column}{0.47\textwidth}
+\begin{block}{标准内容块}
+蓝色标题栏与浅灰正文区域，适合解释方法和结论。
+\end{block}
+\begin{verbatim}
+\begin{block}{标题}
+  正文内容
+\end{block}
+\end{verbatim}
+\end{column}
+\begin{column}{0.47\textwidth}
+\begin{colorblock}[oucblue]{ouclightblue}{自定义内容块}
+淡蓝底配深蓝文字，适合补充说明。
+\end{colorblock}
+\begin{verbatim}
+\begin{colorblock}[oucblue]
+  {ouclightblue}{标题}
+  正文内容
+\end{colorblock}
+\end{verbatim}
+\end{column}
+\end{columns}
+\end{frame}
+
+%\footlinecolor{}
+\begin{frame}[fragile]{插入校徽与图片}
+\begin{columns}
+\begin{column}{0.68\textwidth}
+\begin{block}{图片写法}
+\begin{verbatim}
+\includegraphics[width=\textwidth]
+  {assets/logo_RGB_negative.png}
+\end{verbatim}
+\end{block}
+\begin{itemize}
+  \item \texttt{logo\_RGB.png}：蓝底白色校徽。
+  \item \texttt{logo\_RGB\_negative.png}：白底蓝色校徽。
+  \item 校徽在指定画布中保留旧版的大小与位置，按比例缩放。
+\end{itemize}
+\end{column}
+\begin{column}{0.27\textwidth}
+\includegraphics[width=\textwidth]{assets/logo_RGB_negative.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{分栏排版}
+\begin{columns}[T]
+\begin{column}{0.47\textwidth}
+\textbf{研究方法}
+\begin{itemize}
+  \item 描述数据来源。
+  \item 说明分析流程。
+\end{itemize}
+\end{column}
+\begin{column}{0.47\textwidth}
+\textbf{研究结果}
+\begin{itemize}
+  \item 展示图表与公式。
+  \item 提炼关键发现。
+\end{itemize}
+\end{column}
+\end{columns}
+\medskip
+\begin{block}{分栏写法}
+\begin{verbatim}
+\begin{columns}
+  \begin{column}{0.47\textwidth} 左栏 \end{column}
+  \begin{column}{0.47\textwidth} 右栏 \end{column}
+\end{columns}
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\section{特殊页面}
+
+\begin{chapter}[assets/background_negative.png]{}{章节标题}
+\begin{itemize}
+  \item 海大蓝底白字
+  \item 右侧白底校名组合
+\end{itemize}
+\end{chapter}
+
+\begin{frame}[fragile]{章节页}
+章节页适合标记报告中的主要部分。
+\begin{block}{章节页写法}
+\begin{verbatim}
+\begin{chapter}[assets/background_negative.png]{}{章节标题}
+  \begin{itemize}
+    \item 章节要点
+  \end{itemize}
+\end{chapter}
+\end{verbatim}
+\end{block}
+图片参数可省略；第二个参数为空时，背景默认为海大蓝。
+\end{frame}
+
+\begin{sidepic}{assets/background.png}{侧图页面}
+\begin{itemize}
+  \item 左侧放置说明、要点或公式。
+  \item 右侧采用海大蓝与校名组合。
+  \item 也可将右侧图片换成研究相关图片。
+\end{itemize}
+\end{sidepic}
+
+\begin{frame}[fragile]{侧图页与结束页}
+\begin{block}{侧图页写法}
+\begin{verbatim}
+\begin{sidepic}{assets/background.png}{页面标题}
+  左侧正文内容
+\end{sidepic}
+\end{verbatim}
+\end{block}
+\begin{itemize}
+  \item 用 \verb|\backmatter| 生成蓝底结束页。
+  \item 用 \verb|\backmatter[notitle]| 隐藏结束页的报告标题。
+  \item 结束语可在主题文件的 \verb|\backmatter| 定义中修改。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{模板来源}
+本模板在原有 Beamer 主题基础上改为中国海洋大学版本。
+\medskip
+\begin{itemize}
+  \item 原始主题：Federico Zenith 的
+    \hrefcol{https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx}{SINTEF Presentation}。
+  \item 后续衍生：Liu Qilong 的
+    \hrefcol{https://github.com/TOB-KNPOB/Beamer-LaTeX-Themes}{Beamer-LaTeX-Themes}，
+    以及 Andrea Gasparini、Wenhao Fang 等的改编。
+  \item 海大标识：本项目 \texttt{assets} 中提供的参考图片。
+\end{itemize}
+\medskip
+主题代码保留原有 GPL 许可说明；校徽与校名标识的使用应遵循其权利要求。
+\end{frame}
+
+\backmatter
+\end{document}
