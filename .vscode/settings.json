@@ -1,0 +1,65 @@
+{
+  "latex-workshop.latex.build.enableMagicComments": false,
+  "latex-workshop.latex.jobname": "ouc-beamer-template",
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "XeLaTeX (latexmk)",
+      "tools": [
+        "ouc-xelatexmk"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "ouc-xelatexmk",
+      "command": "/Library/TeX/texbin/latexmk",
+      "args": [
+        "-xelatex",
+        "-jobname=ouc-beamer-template",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-synctex=0",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoClean.run": "onSucceeded",
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.fileTypes": [
+    "ouc-beamer-template.aux",
+    "ouc-beamer-template.log",
+    "ouc-beamer-template.nav",
+    "ouc-beamer-template.snm",
+    "ouc-beamer-template.toc",
+    "ouc-beamer-template.out",
+    "ouc-beamer-template.vrb",
+    "ouc-beamer-template.*.vrb",
+    "ouc-beamer-template.fls",
+    "ouc-beamer-template.fdb_latexmk",
+    "ouc-beamer-template.xdv",
+    "ouc-beamer-template.dvi",
+    "ouc-beamer-template.synctex",
+    "ouc-beamer-template.synctex.gz",
+    "ouc-beamer-template.synctex(busy)",
+    "ouc-beamer-template.synctex.gz(busy)",
+    "ouc-beamer-template.bbl",
+    "ouc-beamer-template.blg",
+    "ouc-beamer-template.idx",
+    "ouc-beamer-template.ind",
+    "ouc-beamer-template.ilg",
+    "ouc-beamer-template.lof",
+    "ouc-beamer-template.lot",
+    "ouc-beamer-template.acn",
+    "ouc-beamer-template.acr",
+    "ouc-beamer-template.alg",
+    "ouc-beamer-template.glg",
+    "ouc-beamer-template.glo",
+    "ouc-beamer-template.gls",
+    "ouc-beamer-template.bcf",
+    "ouc-beamer-template.run.xml"
+  ]
+}
